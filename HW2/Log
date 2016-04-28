@@ -1,0 +1,20 @@
+Monday
+-Started Project 2 for CS444
+-Opened up Sublime and made the basic files
+-Looked into the kernel files and found that the Kconfig.iosched and Makefile need changings, and that an sstf-iosched.c file needs to be created for the assignment.
+-Made changes in the Makefile and Kconfig-iosched
+-Started working on sstf-iosched.c
+
+Tuesday
+-Continued to work on sstf-iosched.c
+
+Wednesday
+-Patching
+
+diff -urN ~/CS444/HW1/block block/ > patch.txt
+
+patch -p1 ../patch.txt
+
+patch -R < ../patch.txt
+
+qemu-system-i386 -gdb tcp::5627 -S -nographic -kernel arch/x86/boot/bzImage -drive file=core-image-lsb-sdk-qemux86.ext3,if=ide -enable-kvm -net none -usb -localtime --no-reboot --append "root=/dev/hda rw console=ttyS0 debug"
